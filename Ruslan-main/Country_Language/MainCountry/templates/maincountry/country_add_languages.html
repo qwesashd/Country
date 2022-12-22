@@ -1,0 +1,16 @@
+{% extends "maincountry/index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<h1>{{url}}</h1>
+<p>
+    {% for i in array %}
+    {% if i == last %}
+        {{i}}
+    {% else %}
+        {{i}},
+    {% endif %}
+    {% endfor %}
+</p>
+{% endblock %}

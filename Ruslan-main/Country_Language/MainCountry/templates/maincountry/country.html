@@ -1,0 +1,35 @@
+{% extends "maincountry/index.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block bukvi %}
+{% for i in buk %}
+<strong><a href="{% url 'country' %}/{{i}}">{{i}}</a></strong>
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+    {% for i in page_object %}
+            <div class="card" style="width: 30rem;float: left">
+                <div class="card">
+                    <div class="card-header">
+                    {{i}}
+                </div>
+                    <div class="card-body">
+                <a href="{% url 'country' %}/{{i}}" class="btn btn-primary">Languages</a>
+            </div>
+                </div>
+            </div>
+    {% endfor %}
+{% endblock %}
+{% block paginator %}
+<div class="container" style="float: left">
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% for p in page_object.paginator.page_range %}
+      <li class="page-item"><a class="page-link" href="?page={{p}}">{{p}}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+</div>
+{% endblock %}
